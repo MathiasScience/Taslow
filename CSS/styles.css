@@ -14,3 +14,8 @@ body{
 	border-radius: 10px;
 	padding: 20px;
 }
+
+#miInput{
+	background: radial-gradient(#9999AA99, #00001199);
+	border-radius: 10px;
+}
