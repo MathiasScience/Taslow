@@ -1,0 +1,16 @@
+body{
+	display: flex;
+	background: radial-gradient(#9999AA, #000011);
+	min-height: 100vh;
+    margin: 0;
+	color: #EEEEFF;
+	font-family: sans-serif, Arial;
+	flex-direction: column;
+	align-items: center;
+}
+
+#contenedorDeLista{
+	background: radial-gradient(#9999AA99, #00001199);
+	border-radius: 10px;
+	padding: 20px;
+}
