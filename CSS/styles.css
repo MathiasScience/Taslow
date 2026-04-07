@@ -19,3 +19,9 @@ body{
 	background: radial-gradient(#9999AA99, #00001199);
 	border-radius: 10px;
 }
+
+button{
+	background: radial-gradient(#9999AA, #000011);
+	border-radius: 10px;
+	margin: 10px;
+}
