@@ -1,6 +1,7 @@
 const input = document.getElementById('miInput');
 const boton = document.getElementById('btnEnviar');
 const lista = document.getElementById('miLista');
+const btnModo = document.getElementById('btnModo');
 
 boton.addEventListener('click', function() {
     const texto = input.value;
@@ -25,4 +26,8 @@ boton.addEventListener('click', function() {
 
         input.value = "";
     }
+});
+
+btnModo.addEventListener('click', () => {
+	document.body.classList.toggle('light-mode');
 });
