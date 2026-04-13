@@ -1,42 +1,106 @@
-body{
-	display: flex;
-	background: radial-gradient(#9999AA, #000011);
-	min-height: 100vh;
+
+:root {
+    --bg-dark: #1e1e24;
+    --text-dark: #ffffff;
+    --accent-dark: #4a4a5e;
+    
+    --bg-light: #f4f4f9;
+    --text-light: #2d2d3a;
+    --accent-light: #ffffff;
+    
+    --primary-color: #6366f1;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
     margin: 0;
-	color: #EEEEFF;
-	font-family: sans-serif, Arial;
-	flex-direction: column;
-	align-items: center;
-	transition: background 0.3s, color 0.3s;
+    background: var(--bg-dark);
+    color: var(--text-dark);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    transition: all 0.3s ease;
+    padding: 20px;
 }
 
-#contenedorDeLista{
-	background: radial-gradient(#9999AA99, #00001199);
-	border-radius: 10px;
-	padding: 20px;
+h1 {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    
 }
 
-#miInput{
-	background: radial-gradient(#9999AA99, #00001199);
-	padding: 10px;
-	border-radius: 10px;
+
+#contenedorDeLista {
+    background: var(--accent-dark);
+    border-radius: 16px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(5px); 
 }
 
-button{
-	background: radial-gradient(#9999AA, #000011);
-	border-radius: 10px;
-	margin: 10px;
-	padding: 10px;
+
+#miInput {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid transparent;
+    padding: 12px 16px;
+    border-radius: 12px;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+    outline: none;
 }
+
+#miInput:focus {
+    border-color: var(--primary-color);
+}
+
+
+button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    margin: 10px 0;
+    padding: 12px 24px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s, background 0.2s;
+    box-shadow: var(--shadow);
+}
+
+button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
 
 body.light-mode {
-    background: radial-gradient(#9999AA, #EEEEFF) !important;
-    color: #000011 !important;
+    background: var(--bg-light);
+    color: var(--text-light);
 }
 
-.light-mode #contenedorDeLista, 
-.light-mode #miInput, 
+.light-mode #contenedorDeLista {
+    background: var(--accent-light);
+}
+
+.light-mode #miInput {
+    background: #fff;
+    border: 1px solid #ddd;
+    color: var(--text-light);
+}
+
 .light-mode button {
-    background: #EEEEFF !important;
-    color: #000011 !important;
+    background: var(--primary-color);
+    color: #fff;
 }
