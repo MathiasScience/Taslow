@@ -4,7 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import os
 
 app = Flask(__name__)
-app.secret_key = "clave_secreta_pro_123" # Cambia esto en producción
+app.secret_key = os.urandom(24) # Llave aleatoria para seguridad
 
 def get_db():
     conn = sqlite3.connect('usuarios_tareas.db')
