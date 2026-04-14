@@ -31,5 +31,5 @@ Presiona el botón debajo de la aplicación que dice `"Cambiar modo"` para alter
 
 ## Créditos y Licencia
 
-Desarrollado por: [@MathiasScience](https://github.com/MathiasScience)  
+Desarrollado por: [@MathiasScience](https://github.com/MathiasScience), [@32-bits-or-64](https://github.com/32-bits-or-64)
 Este proyecto cuenta con la licencia que se encuentra en el archivo `LICENSE`.
