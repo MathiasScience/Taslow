@@ -1,61 +1,49 @@
 const input = document.getElementById('miInput');
-const boton = document.getElementById('btnEnviar');
-const lista = document.getElementById('miLista');
+const btnEnviar = document.getElementById('btnEnviar');
+const listaPendientes = document.getElementById('miLista');
 const listaHecha = document.getElementById('listaHecha');
-const btnModo = document.getElementById('btnModo');
 
-// Función para guardar en la DB
-async function guardarTareaDB(contenido) {
-    await fetch('/api/tasks', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ content: contenido })
-    });
+// Cargar tareas al iniciar sesión
+async function cargarTareas() {
+    const res = await fetch('/tasks');
+    const tareas = await res.json();
+    tareas.forEach(t => renderizarTarea(t.content, t.status));
 }
 
-boton.addEventListener('click', async function() {
-    const texto = input.value;
-
-    if (texto.trim() !== "") {
-        await guardarTareaDB(texto); // Guardar en Python
-        crearElementoTarea(texto, lista);
-        input.value = "";
-    }
-});
-
-function crearElementoTarea(texto, contenedor) {
+function renderizarTarea(texto, status) {
     const li = document.createElement('li');
     li.className = "tarea-item";
-    li.textContent = texto + " ";
+    li.innerHTML = `<span>${texto}</span>`;
 
-    const btnEliminar = document.createElement('button');
-    btnEliminar.textContent = "Completar";
-    btnEliminar.className = "btn-status";
+    const btn = document.createElement('button');
+    btn.textContent = "✓";
+    
+    li.appendChild(btn);
+    if (status === 0) listaPendientes.appendChild(li);
+    else listaHecha.appendChild(li);
 
-    li.appendChild(btnEliminar);
-    contenedor.appendChild(li);
-
-    btnEliminar.onclick = function() {
-        if (li.parentNode === lista) {
+    btn.onclick = () => {
+        if (li.parentNode === listaPendientes) {
             listaHecha.appendChild(li);
-            btnEliminar.textContent = "Deshacer";
-
-            const btnFinal = document.createElement('button');
-            btnFinal.textContent = "Eliminar";
-            btnFinal.className = "btn-danger";
-            
-            btnFinal.onclick = () => li.remove();
-            li.appendChild(btnFinal);
         } else {
-            lista.appendChild(li);
-            btnEliminar.textContent = "Completar";
-            const dangerBtn = li.querySelector('.btn-danger');
-            if (dangerBtn) dangerBtn.remove();
+            li.remove(); // Eliminar definitivamente
         }
     };
 }
 
-btnModo.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-});
-///32-bits-or-64||MathiasScience\\\
+btnEnviar.onclick = async () => {
+    const val = input.value.trim();
+    if (val) {
+        await fetch('/tasks', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ content: val })
+        });
+        renderizarTarea(val, 0);
+        input.value = "";
+    }
+};
+
+document.getElementById('btnModo').onclick = () => document.body.classList.toggle('light-mode');
+
+if (window.location.pathname === '/') cargarTareas();
