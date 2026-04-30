@@ -1,6 +1,6 @@
 body{
 	display: flex;
-	background: radial-gradient(#9999AA, #000011);
+	background: #000011;
 	min-height: 100vh;
     margin: 0;
 	color: #EEEEFF;
@@ -11,13 +11,13 @@ body{
 }
 
 #contenedorDeLista{
-	background: radial-gradient(#9999AA99, #00001199);
+	background: #000011FF;
 	border-radius: 10px;
 	padding: 20px;
 }
 
 #miInput{
-	background: radial-gradient(#9999AA99, #00001199);
+	background: #000011FF;
 	padding: 10px;
 	border-radius: 10px;
 }
@@ -25,16 +25,12 @@ body{
 
 
 body.light-mode {
-    background: radial-gradient(#9999AA, #EEEEFF) !important;
+    background: #EEEEFFFF;
     color: #000011 !important;
 }
 
 .light-mode #contenedorDeLista, 
 .light-mode #miInput, 
-.light-mode button {
-    background: #EEEEFF !important;
-    color: #000011 !important;
-}
 
 .gradient-button {
   position: relative;
