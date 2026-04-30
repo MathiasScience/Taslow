@@ -33,3 +33,7 @@ Presiona el botón debajo de la aplicación que dice `"Cambiar modo"` para alter
 
 Desarrollado por: [@MathiasScience](https://github.com/MathiasScience), [@32-bits-or-64](https://github.com/32-bits-or-64)
 Este proyecto cuenta con la licencia que se encuentra en el archivo `LICENSE`.
+
+
+## Comentarios (devs)
+32-bits-or-64 mathi agrela el error de luz y las tareas || abr 30 2026 6:32:30PM GMT -04:00
