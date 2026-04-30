@@ -1,9 +1,9 @@
 body{
 	display: flex;
-	background: #000011;
+	background:#000011;
 	min-height: 100vh;
     margin: 0;
-	color: #EEEEFF;
+	color: #7f7f7f;
 	font-family: sans-serif, Arial;
 	flex-direction: column;
 	align-items: center;
@@ -11,26 +11,29 @@ body{
 }
 
 #contenedorDeLista{
-	background: #000011FF;
+	background:#00001199;
 	border-radius: 10px;
 	padding: 20px;
 }
 
 #miInput{
-	background: #000011FF;
+	background:#00001199;
 	padding: 10px;
 	border-radius: 10px;
 }
 
-
-
 body.light-mode {
-    background: #EEEEFFFF;
+    background:#EEEEFF !important;
     color: #000011 !important;
 }
 
 .light-mode #contenedorDeLista, 
 .light-mode #miInput, 
+.light-mode button {
+    background: #EEEEFF !important;
+    color: #000011 !important;
+}
+
 
 .gradient-button {
   position: relative;
@@ -81,7 +84,7 @@ body.light-mode {
   content: "";
   position: absolute;
   inset: 3px;
-  background: black;
+  background: #000000;
   border-radius: 47px;
   z-index: -1;
   filter: blur(5px);
@@ -105,14 +108,4 @@ body.light-mode {
 
 .gradient-button:hover .gradient-text {
   animation: hue-rotating 2s linear infinite;
-}
-
-.gradient-button:active {
-  transform: scale(0.99);
-}
-
-@keyframes hue-rotating {
-  to {
-    filter: hue-rotate(360deg);
-  }
 }
