@@ -50,3 +50,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 });
+//aqui puede estar el error? nose 
