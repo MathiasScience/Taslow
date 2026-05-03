@@ -1,9 +1,9 @@
 body{
 	display: flex;
-	background: radial-gradient(#9999AA, #000011);
+	background:#000011;
 	min-height: 100vh;
     margin: 0;
-	color: #EEEEFF;
+	color: #7f7f7f;
 	font-family: sans-serif, Arial;
 	flex-direction: column;
 	align-items: center;
@@ -11,26 +11,20 @@ body{
 }
 
 #contenedorDeLista{
-	background: radial-gradient(#9999AA99, #00001199);
+	background:#00001199;
 	border-radius: 10px;
 	padding: 20px;
 }
 
 #miInput{
-	background: radial-gradient(#9999AA99, #00001199);
+	background:#00001199;
 	padding: 10px;
 	border-radius: 10px;
-}
-
-button{
-	background: radial-gradient(#9999AA, #000011);
-	border-radius: 10px;
-	margin: 10px;
-	padding: 10px;
+	color:#ddddddff;
 }
 
 body.light-mode {
-    background: radial-gradient(#9999AA, #EEEEFF) !important;
+    background:#EEEEFF !important;
     color: #000011 !important;
 }
 
@@ -39,4 +33,80 @@ body.light-mode {
 .light-mode button {
     background: #EEEEFF !important;
     color: #000011 !important;
+}
+
+
+.gradient-button {
+  position: relative;
+  padding: 16px 32px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.gradient-button:hover {
+  transform: scale(1.03);
+}
+
+.gradient-button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    #ff6b6b,
+    #4ecdc4,
+    #45b7d1,
+    #96ceb4,
+    #feca57,
+    #ff9ff3,
+    #ff6b6b
+  );
+  z-index: -2;
+  filter: blur(10px);
+  transform: rotate(0deg);
+  transition: transform 1.5s ease-in-out;
+}
+
+.gradient-button:hover::before {
+  transform: rotate(180deg);
+}
+
+.gradient-button::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: #000000;
+  border-radius: 47px;
+  z-index: -1;
+  filter: blur(5px);
+}
+
+.gradient-text {
+  color: transparent;
+  background: conic-gradient(
+    from 0deg,
+    #ff6b6b,
+    #4ecdc4,
+    #45b7d1,
+    #96ceb4,
+    #feca57,
+    #ff9ff3,
+    #ff6b6b
+  );
+  background-clip: text;
+  filter: hue-rotate(0deg);
+}
+
+.gradient-button:hover .gradient-text {
+  animation: hue-rotating 2s linear infinite;
 }
